@@ -171,5 +171,69 @@ pull + create + start + attach
 run -d
 -------------------------------
 pull + create + start + do not attach
+=====================================================
+
+What is Image?
+------------------
+Collection of file system
+
+root + app + app
+
+
+Requirement
+-------------------------------------
+ubuntu -> java + git + apache2 === mgmrimage
+		------------------------
+					1 layer??
+-------------------------------------------
+
+FROM ubuntu
+MAINTAINER Rajesh Kumar
+RUN apt-get update
+RUN apt-get install git -y
+COPY index.html /opt
+ENV JAVA_HOME /tmp/java
+
+
+ 83  docker commit -m"up-ub-git-java" -a"Rajesh" 3ed825eabdf5 up-ub-git-java
+   84  docker images
+   85  ls
+   86  touch index.html
+   87  ls
+   88  clear
+   89  ls
+   90  vi dockerfile
+   91  more dockerfile
+   92  clear
+   93  ls
+   94  docker build -t raju .
+   95  clear
+   96  docker images
+
+
+  94  docker build -t raju .
+   95  clear
+   96  docker images
+   97  history
+   98  clear
+   99  ls
+  100  docker login
+  101  clear
+  102  docker images
+  103  docker tag raju devopsschools/monday-oct-22
+  104  docker images
+  105  docker push devopsschools/monday-oct-22
+  106  clear
+  107  docker logout
+
+
+
+
+
+
+
+
+
+
 
 
