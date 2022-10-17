@@ -8,3 +8,80 @@ surajk.035@gmail.com		43.205.113.14
 shwethas7507@gmail.com		15.207.51.137
 ayushsinha126@gmail.com	15.206.69.171
 balaji2018@gmail.com		3.109.132.63
+
+
+How to install Docker?
+--------------------------------------
+https://www.devopsschool.com/blog/how-to-install-docker-in-linux/
+
+   13  docker
+   15  clear
+   16  which docker
+   17  which dockerd
+   18  ps -eaf | grep docker
+   19  systemctl status docker
+   20  clear
+   21  systemctl stop docker
+   22  systemctl start docker
+   23  systemctl status docker
+   24  clear
+   25  history
+
+  28  clear
+   29  docker ps
+   30  docker ps -a
+   31  docker images
+   32  history
+
+
+
+Container Lifecycle
+-------------------------
+create -> start -> stop -> start -> restart -> pause  -> unpause -> kill -> remove
+
+38  docker create --name raj httpd
+   39  docker ps
+   40  docker ps 0a
+   41  docker ps -a
+   42  docker create httpd
+   43  docker ps -a
+   44  docker start d37c24323b8c
+   45  docker ps -a
+   46  cler
+   47  clear
+   48  docker ps -a
+   49  docker create httpd
+   50  docker ps -a
+   51  docker start 36063d3ac901
+   52  docker ps -a
+   53  clear
+   54  docker ps -a
+   55  docker stop d37c24323b8c
+   56  docker ps -a
+   57  docker start d37c24323b8c
+   58  docker ps -a
+   59  docker restart 36063d3ac901
+   60  docker ps -a
+   61  clear
+   62  docker ps -a
+   63  docker pause d37c24323b8c
+   64  docker ps -a
+   65  docker unpause d37c24323b8c
+   66  docker ps -a
+   67  docker kill 36063d3ac901
+   68  docker ps -a
+   69  clear
+   70  docker ps
+   71  docker ps -a
+   72  docker rm d37c24323b8c
+   73  docker rm 36063d3ac901 2135e2f597ce
+   74  docker ps -a
+   75  history
+
+
+
+Assignment
+---------------------------------
+Submit on Debu.school
+Q1. What is difference between docker kill and docker stop?
+Q2. What is difference between docker pause and docker unpause?
