@@ -1,13 +1,26 @@
-rathi.priya1@gmail.com		15.206.146.36
-madhurathunga@gmail.com	13.127.106.90
-sruthiramnath.95@gmail.com	52.66.44.44
-vijay.chakri@gmail.com		65.0.103.73
-ranjan.adi2112@gmail.com	43.205.195.33
-rijilabraham@gmail.com		13.233.179.92
-surajk.035@gmail.com		43.205.113.14
-shwethas7507@gmail.com		15.207.51.137
-ayushsinha126@gmail.com	15.206.69.171
-balaji2018@gmail.com		3.109.132.63
+hardware
+
+		Kernal
+				Namespace			OS		CAN
+						user		MUL		MUL
+						net			1		MUL
+						pid			1		MUL
+						mnt			1		MUL
+				cgroups
+				Capa	
+							root | non root
+
+SYSTEM FILESYSTEM
+----------------------------
+BOOTFS --> ROOTFS --> USERFS -> APPFS
+--------------------------------------
+KERNAL --> centos  -> apache -> apache
+			ubuntu  --> jdk(jenkins user) -> jenkins
+----------------------------------------
+		  ------------------------------
+						docker image
+			-------------------------
+			mounted in each cont
 
 
 How to install Docker?
@@ -85,3 +98,78 @@ Assignment
 Submit on Debu.school
 Q1. What is difference between docker kill and docker stop?
 Q2. What is difference between docker pause and docker unpause?
+
+
+============================================
+How to use Container?
+- Go inside using shell
+- Access from outside using network
+		From outside
+
+
+   9  docker ps
+   10  docker exec 49b669456994 ls
+   11  docker exec 49b669456994 df
+   12  clear
+   13  docker ps
+   14  docker exec -it 49b669456994 /bin/bash
+   15  clear
+   16  docker ps
+   17  docker inspect 49b669456994
+   18  clear
+   19  docker inspect 49b669456994 | grep ip
+   20  docker inspect 49b669456994 | grep 172
+   21  curl http://172.17.0.2
+   22  clear
+   23  docker create -p 80:80 httpd
+   24  docker ps -a
+   25  docker start 2b339e961e9c
+   26  docker ps
+   27  docker create -p 81:80 httpd
+   28  docker start c34c9c3d134169b928cc76ee15953232a7ec15494f0221ded5718e8674e04ea1
+   29  clear
+   30  docker ps
+
+=====================================================================
+PID 1
+---------------------------
+PS 					VM				Container
+
+Coz of pId1			Coz of pId1		Coz of pId1
+init/systemd		init/systemd	bash python java x y z
+									---------------------------
+									Creating an image - CMD vs ENTRYPOINT
+
+docker attach cont-id
+-----------------------------
+		attach to PID1
+
+ 30  docker ps
+   31  history
+   32  clear
+   33  ps -eaf
+   34  clear
+   35  docker run -itd ubuntu
+   36  docker ps
+   37  docker exec 5d8fa60485f8 ps -eaf
+   38  ps -eaf
+   39  clear
+   40  docker pos
+   41  docker ps
+   42  docker attach 5d8fa60485f8
+   43  docker ps
+   44  clear
+   45  docker attach c34c9c3d1341
+   46  docker ps
+   47  clear
+
+
+run
+-------------------------------
+pull + create + start + attach
+
+run -d
+-------------------------------
+pull + create + start + do not attach
+
+
