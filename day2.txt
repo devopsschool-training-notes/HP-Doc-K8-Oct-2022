@@ -294,4 +294,71 @@ spec:
    87  kubectl get pods --all-namespaces
    88  clear
 
+===================================================
+
+Troubleshooting and Debugging Commands:
+  describe      Show details of a specific resource or group of resources
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  cp            Copy files and directories to and from containers
+  auth          Inspect authorization
+
+
+kubectl port-forward --address 0.0.0.0 pod/nodehelloworld.example.com 8888:80
+
+
+
+
+ 93  kubectl get pods
+   94  clear
+   95  ls
+   96  kubectl apply -f pod.yaml
+   97  kubectl get pods
+   98  clear
+   99  kubectl get pods
+  100  kubectl get pods -o wide
+  101  curl http://192.168.1.4
+  102  cd
+  103  ls
+  104  kubectl logs nodehelloworld.example.com
+  105  kubectl logs -h
+  106  clear
+  107  kubectl get pods
+  108  kubectl attach nodehelloworld.example.com
+  109  history
+  110  clear
+  111  kubectl attach nodehelloworld.example.com
+  112  clear
+  113  kubectl get pods
+  114  kubectl exec nodehelloworld.example.com ls
+  115  clear
+  116  kubectl exec -it nodehelloworld.example.com /bin/bash
+  117  clear
+  118  kubectl port-forward -h
+  119  clear
+  120  kubectl get pods
+  121  clear
+  122  kubectl port-forward --address 0.0.0.0 pod/nodehelloworld.example.com 8888:80
+  123  cleart
+  124  clear
+  125  kubectl get pods
+  126  ls
+  127  kubectl exec nodehelloworld.example.com ls /tmp
+  128  kubectl cp pod.yaml nodehelloworld.example.com:/tmp
+  129  kubectl exec nodehelloworld.example.com ls /tmp
+  130  cleart
+  131  clear
+  132  kubectl auth
+  133  kubectl auth can-i create pod
+  134  kubectl auth can-i create svc
+  135  history
+
+
+
+
+
+
+
 
