@@ -1,0 +1,97 @@
+Some Discussion on Architecture
+================================
+Master
+------------------------
+- API server 		-> POD -> Container -> Docker image -> GCR
+- Etcd				-> POD -> Container -> Docker image -> GCR
+- Controller mgmr	-> POD -> Container -> Docker image -> GCR
+- Schedular			-> POD -> Container -> Docker image -> GCR
+- Kube Proxy		-> POD -> Container -> Docker image -> GCR
+
+- kubelet
+- Docker / ContainerD
+- kubectl 
+- kubeadm init
+
+Worker
+-----------------------
+- Kube Proxy		-> POD -> Container -> Docker image -> GCR
+
+- Docker / ContainerD
+- kubelet
+- kubectl 
+- kubeadm join
+
+Workstation
+-----------------------
+- kubectl
+		read "config"
+		~/.kube/config
+						- API server
+						- cert + pvt + user
+
+
+
+Plan for K8 Setup
+===============================
+Laptop --> Master+Workstation + Worker
+		 -------------------------------	
+
+We would setup k8
+===============================
+Master+Workstation - 13.126.109.111
+Worker - 15.206.146.185
+
+
+kubeadm join 172.31.25.169:6443 --token qkpl6t.wmd75nj5mxe2zg9h --discovery-token-ca-cert-hash sha256:f24928d8519b478d3315a88653c7a6440ff542c49853f7e3c3c3b8206143cd0f
+
+
+Validate
+===============================
+
+rathi.priya1@gmail.com		3.110.143.211
+madhurathunga@gmail.com	13.232.29.242
+sruthiramnath.95@gmail.com	65.2.180.243
+vijay.chakri@gmail.com		65.2.148.173
+ranjan.adi2112@gmail.com	3.110.134.199
+rijilabraham@gmail.com		13.234.37.139
+surajk.035@gmail.com		3.110.94.195
+shwethas7507@gmail.com		15.206.169.109
+ayushsinha126@gmail.com	13.127.99.9
+balaji2018@gmail.com		65.0.17.36
+
+
+=================MASTER=============================
+   9  ls
+   10  git clone https://github.com/certifications-tutorials/cks-course-environment
+   11  clear
+   12  ls
+   13  cd cks-course-environment/
+   14  clear
+   15  ls
+   16  cd cluster-setup/
+   17  clar
+
+
+==================WORKER============================
+
+  4  ls
+    5  git clone https://github.com/certifications-tutorials/cks-course-environment
+    6  clear
+    7  ls
+    8  cd cks-course-environment/
+    9  clear
+   10  ls
+   11  cd cluster-setup/
+   12  ls
+   13  cd latest/
+   14  clear
+   15  ls
+   16  chmod 755 install_worker.sh
+   17  clear
+   18  ls
+   19  ./install_worker.sh
+   20  kubeadm join 172.31.25.169:6443 --token qkpl6t.wmd75nj5mxe2zg9h --discovery-token-ca-cert-hash sha256:f24928d8519be3c3c3b8206143cd0f
+   21  clear
+
+
