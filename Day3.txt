@@ -1,0 +1,83 @@
+Master + Workstation - 13.233.125.1
+Worker - 13.127.228.170
+=================================
+ReplicationController
+Deployment
+----------------------------------
+Replication - 1 to Many PODS
+Controller	- Desire # pod === Acutal # POD
+
+https://www.devopsschool.com/blog/kubernetes-replicationcontroller-example-programs/
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  # Unique key of the ReplicationController instance
+  name: replicationcontroller-example
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      # Run the nginx image
+      - name: nginx
+        image: scmgalaxy/nginx-devopsschoolv1
+
+
+ReplicationController			== rc
+--------------------------
+ReplicaSets == ReplicationController+++Bug fixing == rs
+
+139  cd
+  140  ls
+  141  clear
+  142  ls
+  143  mkdir rajesh
+  144  cd rajesh/
+  145  ls
+  146  clear
+  147  ls
+  148  vi rc.yam;
+  149  vi rc.yaml
+  150  kubectl get rc
+  151  kubectl create ns rajesh
+  152  clear
+  153  l
+  154  kubectl create -f rc.yaml -n=rajesh
+  155  kubectl get pods -n=rajesh
+  156  kubectl get rc -n=rajesh
+  157  kubectl describe rc replicationcontroller-example -n=rajesh
+  158  clear
+  159  kubectl get pods -n=rajesh
+  160  kubectl describe pod replicationcontroller-example-m75ks -n=rajesh
+  161  clear
+  162  ls
+  163  kubectl get rc -n=rajesh
+  164  kubectl edit rc replicationcontroller-example -n=rajesh
+  165  kubectl get rc -n=rajesh
+  166  vi rc.yaml
+  167  kubectl apply -f rc.yaml -n=rajesh
+  168  kubectl get rc -n=rajesh
+  169  clear
+  170  kubectl
+  171  clear
+  172  kubectl scale -h
+  173  clear
+  174  kubectl scale --replicas=8 rc/replicationcontroller-example -n=rajesh
+  175  kubectl get rc -n=rajesh
+  176  kubectl get pod -n=rajesh
+  177  clear
+  178  kubectl get rc -n=rajesh
+  179  kubectl get pod -n=rajesh
+  180  kubectl delete pod replicationcontroller-example-tr2mj replicationcontroller-example-rvsb5 replicationcontroller-example-pllcm -n=rajesh
+  181  kubectl get pod -n=rajesh
+  182  clear
+  183  kubectl get pod -n=rajesh
+  184  clear
+  185  kubectl create -h
+  186  clear
+
