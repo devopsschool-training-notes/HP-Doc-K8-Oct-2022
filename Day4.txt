@@ -128,6 +128,177 @@ pod				pv/pvc			rbac			calico			as			con--> apis
 kubeadm join 172.31.17.224:6443 --token y98g69.vepkdddddx9cp --discovery-token-ca-cert-hash sha256:93d61cdc0cc16e2518d323fc8e352f5e842fad1565b0c1064f2bb76067f33093
 
 
+Nisanth Chellamuthu	65.0.17.141
+Sachin Pargi			43.205.120.250
+Souveer Das			15.207.108.41
+Asha Francis			13.126.84.253
+Ravindra Reddy			13.234.114.250
+Sandeep L				65.1.132.190
+Shobana D				13.126.244.93
+Agrima Sharma			43.204.30.193
+Sandhya K				13.127.213.146
+Aman Gupta				13.232.93.141
+Mayuka C				65.2.175.50
+Evangelin Briskilla	3.108.41.58
+Tanu Sharma			43.205.130.241
+Veeramani Natarajan	65.2.128.61
+souveer das			43.205.231.90
+===================================================
+
+kubectl taint node mymasternode node-role.kubernetes.io/master:NoSchedule-
+e.g
+kubectl taint node ip-172-31-17-224 node-role.kubernetes.io/master:NoSchedule-
+=========================================
+namespace
+pod
+replicationcontroller
+---------------------------------------------
+C
+		cmd
+				create
+		yaml
+				create -f yaml
+R	
+		cmd
+				get
+				describe 
+		yaml
+				get -f yaml
+U
+		cmd
+				edit
+		yaml
+				apply -f yaml
+D
+		cmd
+				delete 
+		yaml
+				delete -f yaml
+
+  80  clear
+   81  kubectl get nodes
+   82  clear
+   83  kubectl
+   84  clear
+   85  kubectl get ns
+   86  clear
+   87  kubectl get ns
+   88  kubectl create ns dev
+   89  kubectl create ns qsa
+   90  kubectl get ns
+   91  clear
+   92  kubectl edit ns qsa
+   93  kubectl describe ns qsa
+   94  kubectl delete ns qsa
+   95  history
+
+https://www.devopsschool.com/blog/kubernetes-pod-example-programs/
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rajesh
+  labels:
+    app: helloworld
+spec:
+  containers:
+  - name: devopsschool1
+    image: scmgalaxy/nginx-devopsschoolv1
+    ports:
+    - name: nginx-port
+      containerPort: 80
+
+
+ 97  ls
+   98  vi pod.yaml
+   99  clear
+  100  kubectl create -f pod.yaml
+  101  kubectl create -f pod.yaml -n=qa
+  102  kubectl get ns
+  103  kubectl create -f pod.yaml -n=dev
+  104  clear
+  105  kubectl create -f pod.yaml -n=dev
+  106  kubectl get pods
+  107  kubectl get pods -n=dev
+  108  kubectl describe pod rajesh
+  109  clear
+  110  kubectl get pods -o wide
+  111  kubectl get pods -o wide --show-labels
+  112  kubectl -h
+  113  kubectl get -h
+  114  clear
+  115  kubectl describe  -h
+  116  clear
+  117  history
+  118  clear
+  119  ls
+  120  kubectl get pods
+  121  vi pod.yaml
+  122  kubectl apply -f pod.yaml
+  123  kubectl get pods -o wide --show-labels
+  124  kubectl delete -f pod.yaml
+  125  clear
+  126  history
+
+
+kubectl port-forward --address 0.0.0.0 pod/rajesh 8888:80
+
+ 127  clear
+  128  ls
+  129  kubectl get pods
+  130  clear
+  131  kubectl run -h
+  132  clear
+  133  kubectl run nginx --image=nginx
+  134  kubectl get pods
+  135  ls
+  136  kubectl apply -f pod.yaml
+  137  clear
+  138  kubectl get pods
+  139  kubectl get pods -o wide
+  140  curl http://192.168.1.5
+  141  curl http://192.168.1.4
+  142  clear
+  143  ls
+  144  clear
+  145  ks
+  146  kubectl get pods
+  147  kubectl exec rajesh ls
+  148  clear
+  149  kubectl exec rajesh df
+  150  kubectl exec -it rajesh /bin/bash
+  151  clar
+  152  clear
+  153  kubectl get pods
+  154  kubectl exec rajesh ls /opt
+  155  ls
+  156  kubectl cp pod.yaml rajesh:/opt
+  157  kubectl exec rajesh ls /opt
+  158  kubectl attach rajesh
+  159  clear
+  160  ls
+  161  history
+  162  clear
+  163  ls
+  164  kubectl get pods -o wide
+  165  kubectl -h
+  166  clear
+  167  kubectl port-forward -h
+  168  clear
+  169  kubectl port-forward --address 0.0.0.0 pod/rajesh 8888:80
+  170  kubectl
+  171  clear
+  172  ls
+  173  kubectl logs rajesh
+
+
+
+=======================
+deployment
+
+===================
+services
 
 
 
