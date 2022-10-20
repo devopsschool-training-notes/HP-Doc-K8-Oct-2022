@@ -1,0 +1,133 @@
+9 AM IST - 5:PM IST
+-----------------------------
+1:00 - 2 PM IST
+-------------------------
+15 mins -
+============================================
+DEMO + LAB =====  
+================================================
+Assignment ===> Certification
+-------------------------------------
+How to submit an Assignment?
+------------------------------
+How to setup Master | Worker | Workstation?
+------------------------------------------
+Master
+---------------------------
+- Api Server		- POD - Container -> Docker image --> Google Registry
+- etcd				- POD - Container -> Docker image --> Google Registry	
+- Schedular		- POD - Container -> Docker image --> Google Registry
+- Controller mgr	- POD - Container -> Docker image --> Google Registry
+- Kube proxy		- POD - Container -> Docker image --> Google Registry
+		Network Policy - POD - Container -> Docker image --> Google Registry
+- coreDNS		- POD - Container -> Docker image --> Google Registry	
+
+- kubectl
+- Kubelet
+- Docker
+- kubeadm init
+
+
+Worker
+---------------------------
+- Kube proxy		- POD - Container -> Docker image --> Google Registry
+		Network Policy - POD - Container -> Docker image --> Google Registry
+
+- kubectl
+- Kubelet
+- Docker
+- kubeadm join
+
+
+
+Workstation
+-------------------------
+- kubectl
+		Read one file
+		---------------
+		config
+
+		~/.kube/config
+
+Content of this config file
+-------------------------------
+			YAML file
+			URL - API SERVER
+				CERTIFICATE 
+				pvt key
+
+=========================================================================
+PLAN
+-------------------------------------------------------------------------
+MASTER + Workstation - ubuntu
+------------------------------
+65.2.169.33
+https://www.devopsschool.com/blog/kubernetes-1-23-6-cluster-setup-master-and-worker-in-ubuntu-20-04/
+
+
+Worker - ubuntu
+-----------------------------
+3.111.149.198
+https://www.devopsschool.com/blog/kubernetes-1-23-6-cluster-setup-master-and-worker-in-ubuntu-20-04/
+
+
+Docker Client -> Docker Server --> ContainerD --> Kernal 
+
+-------------------Kubernetes X BEFORE 1.22-----------------------------
+API server -> Kubelet -> DockerD -> ContainerD --> Kernal 
+
+-------------------Kubernetes NEW 1.23-----------------------------
+API server -> Kubelet -> ContainerD --> Kernal 
+
+
+AWS
+Compute			storage			security		networking		asg			moniotring	
+----------------------------------------------------------------------------
+ec2-instance	ebs				iam				vpc				asg			cloudwatch
+
+Kubernetes
+Compute			storage			security		networking		asg			moniotring	
+----------------------------------------------------------------------------
+pod				pv/pvc			rbac			calico			as			con--> apis
+
+
+ 23  kubectl get nodes
+   24  more ~/.kube/config
+   25  clear
+   26  kubectl config view
+   27  clear
+   28  kubectl get pods --all-namespaces
+   29  kubectl get deploy -n=kube-system
+   30  kubectl get svcd -n=kube-system
+   31  kubectl get svc -n=kube-system
+   32  clear
+   33  ls
+   34  kubectl get nodes
+   35  clear
+   36  kubectl
+   37  kubectl api-resources
+   38  clear
+   39  kubectl api-resources
+   40  kubectl api-resources | wc -l
+   41  clear
+   42  ls
+   43  kubectl
+   44  kubectl api-versions
+   45  clear
+   46  kubectl
+   47  clear
+   48  kubectl cluster-info
+   49  kubectl version
+   50  clea
+   51  clear
+   52  history
+
+
+
+
+kubeadm join 172.31.17.224:6443 --token y98g69.vepkdddddx9cp --discovery-token-ca-cert-hash sha256:93d61cdc0cc16e2518d323fc8e352f5e842fad1565b0c1064f2bb76067f33093
+
+
+
+
+
