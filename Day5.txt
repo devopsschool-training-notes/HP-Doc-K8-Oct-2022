@@ -314,9 +314,39 @@ roleRef:
   name: deployment-manager
   apiGroup: ""
 
+==============================================================
+Kubernetes API/Metrics
+===============================================
+Infra == Metrics
+		Pod - Container - Kubetlet - Docker
+		Worker
+				CPU - RAM + HDD
+		Kubernetes
+===============================================
+					prometheus
+
+Log
+		Cont Log - Docker Event - Kubetlet Event log
+		Worker - Linux Log
+================================================
+				Elasticsearch
+
+Trace + Syna + RUM
+		Service
+==============================================
+				Jaegor
+
+=====================================================
+Slides - https://devopsschool.com/slides/
+Notes - github
+Tutorials - https://www.devopsschool.com/blog/?s=kubernetes
+Quiz - https://www.devopsschool.com/lms
+Programs - https://www.devopsschool.com/blog/?s=kubernetes
+
+More Videos
+https://www.devopsschool.com/blog/10-best-youtube-channels-for-programmers-and-devops-engineers/
 
 
-
-
-
+rajesh@devopsschool.com
+www.RajeshKumar.xyz
 
