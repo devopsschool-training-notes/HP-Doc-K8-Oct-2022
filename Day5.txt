@@ -72,3 +72,211 @@ kubectl create service nodeport my-ns --tcp=5678:80
   303  clear
   304  kubectl get svc
   305  curl http://10.100.87.218:5678
+==============================================
+Persistance Volume, Claim, Storage Classes, Access Claim in a Pod
+Stateful Sets
+==============================================
+
+				AWS							Kubernetes
+----------------------------------------------------------------------------------
+Admin			ADD STORAGE						Add a Pool of Vol		- pv				
+----------------------------------------------------------------------------------
+User - Create 	volume						Claim a vol 			- pvc
+----------------------------------------------------------
+User - Attached	VM(Compute)					attach vol to POD		- pod.sepc.volume
+----------------------------------------------------------
+User - MOUNT		VM(Compute)					mount volume to container
+----------------------------------------------------------
+USE IT
+
+
+How to can we create pv and using which storage?
+===================================================
+Types of Storage
+-------------------
+BLOCK 			EBS
+NETWORK == file	EFS
+OBJECT			S3
+=======================================================
+
+awsElasticBlockStore (deprecated)		BLOCK
+azureDisk (deprecated)				BLOCK
+azureFile (deprecated)				NETWORK
+cephfs
+cinder (deprecated)				BLOCK
+configMap						CLUSTOR - etcd - key - value
+downwardAPI
+emptyDir
+fc (fibre channel)
+gcePersistentDisk (deprecated)		BLOCK
+gitRepo (deprecated)
+glusterfs (deprecated)
+hostPath
+iscsi
+local
+nfs
+persistentVolumeClaim
+portworxVolume (deprecated)
+projected
+rbd
+secret						CLUSTOR - etcd - key - value
+vsphereVolume (deprecated)			BLOCK
+
+How Kubernetes understand these storage tech?
+
+
+https://www.devopsschool.com/blog/persistentvolume-persistentvolumeclaim-volumes-using-hostpath/
+
+
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: hostpath1
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/devopsschool"
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: hostpath2
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/devopsschool"
+
+
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvchostpath1
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvchostpath2
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: task-pv-pod
+spec:
+  containers:
+    - name: task-pv-container
+      image: scmgalaxy/nginx-devopsschoolv1
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: pvchostpath2
+======================================================================================
+how to get pod???
+--------------------------------------------------------------------------------------
+Pod							1 POD
+ReplicationController			N POD && Actual == Desire
+ReplicaSet					N POD && Actual == Desire
+Deployment					ReplicaSet + versioning + Rollout + Rollback
+DaemonSet					Max 1 POD at each worker
+
+StatefulSet
+https://www.devopsschool.com/blog/explained-kubernetes-kubernetes-statefulset-with-example/
+------------------------------------------------------------
+Create a POD in order
+				POD1 -> POD2 -> POD3 -> POD4
+delete a POD in order
+				POD1 -> POD2 -> POD3 -> POD4
+Fixed patter in podnme
+				POD-1, POD-2, POD-3, POD-4
+Volume Allocation
+		POD-1 === PVC-1
+		POD-2 === PVC-2	
+		
+		POD-4 === PVC-4
+
+		POD-3 === PVC-3	
+
+
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  serviceName: "nginx"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: k8s.gcr.io/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
