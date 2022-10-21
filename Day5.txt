@@ -1,0 +1,74 @@
+Master + Workstation
+65.2.188.131
+
+Worker
+3.111.245.206
+===========================================
+What is Services?
+-----------------------------------------
+
+kubectl create service clusterip my-cs --tcp=5678:80
+
+kubectl create service nodeport my-ns --tcp=5678:80
+
+  245  mkdir rajesh
+  246  cd rajesh/
+  247  clear
+  248  ls
+  249  vi pod1.yaml
+  250  vi pod2.yaml
+  251  clear
+  252  ls
+  253  kubectl get pods
+  254  kubectl delete deploy my-dep
+  255  clear
+  256  kubectl get pods
+  257  kubectl delete pod nginx rajesh
+  258  kubectl get pods
+  259  clea
+  260  clear
+  261  ls
+  262  kubectl apply -f pod1.yaml
+  263  kubectl apply -f pod2.yaml
+  264  clear
+  265  kubectl get pods -o wide
+  266  curl http://192.168.1.20
+  267  curl http://192.168.1.21
+  268  kubectl create svc -h
+  269  clear
+  270  kubectl create svc clustorip -h
+  271  kubectl create svc clusterip -h
+  272  clear
+  273  kubectl create service clusterip my-cs --tcp=5678:80
+  274  kubectl get svc
+  275  kubectl describe svc my-cs
+  276  cler
+  277  clear
+  278  kubectl get pods --show-labels
+  279  kubectl get svc --show-labels
+  280  kubectl edit svc my-cs
+  281  kubectl get pods --show-labels
+  282  kubectl get svc --show-labels
+  283  kubectl describe svc my-cs
+  284  clear
+  285  kubectl edit svc my-cs
+  286  clear
+  287  kubectl describe svc my-cs
+  288  kubectl get svc
+  289  curl http://10.102.142.50:5678
+  290  clear
+  291  watch curl http://10.102.142.50:5678
+  292  clear
+  293  ls
+  294  kubectl get svc
+  295  kubectl create svc nodeport -h
+  296  clear
+  297  kubectl create service nodeport my-ns --tcp=5678:80
+  298  kubectl get svc
+  299  kubectl describe svc my-ns
+  300  kubectl edit svc my-ns
+  301  clear
+  302  kubectl describe svc my-ns
+  303  clear
+  304  kubectl get svc
+  305  curl http://10.100.87.218:5678
